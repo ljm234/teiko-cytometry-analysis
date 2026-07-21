@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build the database
+        run: python load_data.py
+
+      - name: Run the test suite
+        run: python -m pytest tests -q
+
+      - name: Run the full pipeline
+        run: |
+          python -m analysis.frequencies
+          python -m analysis.statistics
+          python -m analysis.mixed_models
+          python -m analysis.subsets
+          python -m analysis.figures
+          python -m analysis.export_dashboard
