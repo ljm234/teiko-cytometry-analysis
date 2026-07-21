@@ -1,0 +1,76 @@
+{
+  "baseline_cohort": {
+    "description": "Melanoma PBMC samples at baseline from patients treated with miraclib",
+    "n_samples": 656,
+    "n_subjects": 656
+  },
+  "samples_per_project": [
+    {
+      "project": "prj1",
+      "n_samples": 384,
+      "n_subjects": 384
+    },
+    {
+      "project": "prj3",
+      "n_samples": 272,
+      "n_subjects": 272
+    }
+  ],
+  "subjects_by_response": [
+    {
+      "response": "no",
+      "n_subjects": 325,
+      "n_samples": 325
+    },
+    {
+      "response": "yes",
+      "n_subjects": 331,
+      "n_samples": 331
+    }
+  ],
+  "subjects_by_sex": [
+    {
+      "sex": "F",
+      "n_subjects": 312,
+      "n_samples": 312
+    },
+    {
+      "sex": "M",
+      "n_subjects": 344,
+      "n_samples": 344
+    }
+  ],
+  "male_responder_baseline_b_cells": {
+    "n_samples": 485,
+    "n_subjects": 485,
+    "total_b_cell_count": 4949983,
+    "mean_b_cell_count": 10206.150515463918,
+    "mean_b_cell_count_rounded": 10206.15,
+    "breakdown": [
+      {
+        "sample_type": "PBMC",
+        "treatment": "miraclib",
+        "n_samples": 184,
+        "mean_b_cell_count": 10401.277173913044
+      },
+      {
+        "sample_type": "PBMC",
+        "treatment": "phauximab",
+        "n_samples": 179,
+        "mean_b_cell_count": 10006.737430167597
+      },
+      {
+        "sample_type": "WB",
+        "treatment": "miraclib",
+        "n_samples": 54,
+        "mean_b_cell_count": 9852.62962962963
+      },
+      {
+        "sample_type": "WB",
+        "treatment": "phauximab",
+        "n_samples": 68,
+        "mean_b_cell_count": 10483.823529411764
+      }
+    ]
+  }
+}
