@@ -1,0 +1,4 @@
+timepoint,n_responders,n_non_responders,alpha,power,minimum_detectable_cohens_d
+0,331,325,0.05,0.8,0.21977442609463269
+7,331,325,0.05,0.8,0.21977442609463269
+14,331,325,0.05,0.8,0.21977442609463269

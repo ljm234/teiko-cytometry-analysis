@@ -1,0 +1,9 @@
+# Requires Python 3.12 or newer.
+# numpy 2.5 and scipy 1.18 publish wheels from cp312 onward; on older
+# interpreters pip falls back to building from source, which needs a Fortran
+# toolchain and takes several minutes.
+matplotlib==3.11.1
+numpy==2.5.1
+pandas==3.0.3
+scipy==1.18.0
+statsmodels==0.14.6
