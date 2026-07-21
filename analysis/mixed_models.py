@@ -48,6 +48,21 @@ from analysis.statistics import ALPHA, FLOAT_FORMAT, benjamini_hochberg, load_co
 OPTIMISER = "powell"
 MAX_ITERATIONS = 1000
 
+# Variance components and any quantity derived from them are rounded to six decimal
+# places before being written. When a variance component is estimated at its lower
+# bound the optimiser approaches zero asymptotically and stops wherever its tolerance
+# is met, so consecutive fits land on values such as 1.1e-9 or 2.0e-9. Both are zero
+# in any meaningful sense: the residual variance is around ten, so these estimates are
+# ten orders of magnitude smaller than the signal. Writing them at full precision would
+# imply a resolution the method does not have, and would make the output file differ
+# between runs for no analytical reason.
+VARIANCE_DECIMALS = 6
+VARIANCE_COLUMNS = (
+    "variance_between_subjects",
+    "variance_residual",
+    "model_intraclass_correlation",
+)
+
 
 def fit_population_model(cohort: pd.DataFrame, population: str):
     """Fit the random intercept model for one population.
@@ -113,6 +128,10 @@ def summarise(cohort: pd.DataFrame) -> pd.DataFrame:
         frame["interaction_p_value"].to_numpy()
     )
     frame["interaction_significant"] = frame["interaction_q_value"] < ALPHA
+
+    for column in VARIANCE_COLUMNS:
+        frame[column] = frame[column].round(VARIANCE_DECIMALS)
+
     return frame
 
 
