@@ -6,6 +6,10 @@ and those who did not, and publishes the result as an interactive dashboard.
 
 **Dashboard:** https://ljm234.github.io/teiko-cytometry-analysis/
 
+A second copy is published at https://teiko-cytometry-analysis.vercel.app/ so the
+analysis stays reachable if either host is unavailable. Both rebuild from `main` on
+every push, so neither can drift from the other or from the pipeline.
+
 ## The headline result
 
 No immune cell population separates responders from non-responders at any visit, once
@@ -241,7 +245,11 @@ seventeen kinds of malformed input each produce an actionable message rather tha
 traceback.
 
 Continuous integration runs the full pipeline and the test suite on every push, and
-rebuilds and republishes the dashboard.
+rebuilds and republishes the dashboard to both hosts.
+
+The pipeline has been run end to end on macOS with Python 3.14, in a Codespace with
+Python 3.12, and on the Ubuntu runners that build every commit. The three agree to the
+last reported digit, apart from the tenth decimal place noted above.
 
 ## Licence
 
