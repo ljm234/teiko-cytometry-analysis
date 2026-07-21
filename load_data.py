@@ -28,6 +28,20 @@ POPULATIONS = {
     "monocyte": "Monocyte",
 }
 
+MIN_AGE = 0
+MAX_AGE = 130
+VALID_SEX = ("M", "F")
+VALID_RESPONSE = ("yes", "no")
+
+REQUIRED_TEXT_FIELDS = (
+    "project",
+    "subject",
+    "condition",
+    "treatment",
+    "sample",
+    "sample_type",
+)
+
 EXPECTED_COLUMNS = [
     "project",
     "subject",
@@ -66,12 +80,28 @@ def read_rows(csv_path: Path) -> list[dict[str, str]]:
     return rows
 
 
-def validate(rows: list[dict[str, str]]) -> None:
-    """Check the invariants the normalised schema relies on.
+def parse_integer(value: str, column: str, line_number: int) -> int:
+    """Convert a field to an integer, or fail with the offending line and column."""
+    try:
+        return int(value)
+    except ValueError:
+        raise DataValidationError(
+            f"line {line_number}: {column} is not an integer: {value!r}"
+        ) from None
 
-    Subject level attributes are stored once per subject, which is only correct if
-    they never conflict across that subject's samples. Validating here converts a
-    silent data corruption into an explicit failure at load time.
+
+def validate(rows: list[dict[str, str]]) -> None:
+    """Check the invariants the schema relies on before anything is inserted.
+
+    The schema carries CHECK constraints covering the same ground, and those are the
+    guarantee that nothing invalid reaches the tables. Validating first is about the
+    message rather than the guarantee: a constraint violation surfaces as a database
+    error with no indication of which row caused it, whereas checking here reports the
+    line number and the offending value. Both layers are kept, since the constraints
+    also protect against anything written to the database by another route.
+
+    Subject level attributes are stored once per subject, which is only correct if they
+    never conflict across that subject's samples, so that invariant is checked too.
     """
     seen_samples: set[str] = set()
     subject_attributes: dict[str, tuple[str, ...]] = {}
@@ -85,13 +115,41 @@ def validate(rows: list[dict[str, str]]) -> None:
             raise DataValidationError(f"line {line_number}: duplicate sample {sample_id}")
         seen_samples.add(sample_id)
 
+        for column in REQUIRED_TEXT_FIELDS:
+            if not row[column].strip():
+                raise DataValidationError(f"line {line_number}: {column} is empty")
+
+        age = parse_integer(row["age"], "age", line_number)
+        if not MIN_AGE <= age <= MAX_AGE:
+            raise DataValidationError(
+                f"line {line_number}: age {age} lies outside the plausible range "
+                f"{MIN_AGE} to {MAX_AGE}"
+            )
+
+        if row["sex"] not in VALID_SEX:
+            raise DataValidationError(
+                f"line {line_number}: sex must be one of {VALID_SEX}, found {row['sex']!r}"
+            )
+
+        if row["response"] and row["response"] not in VALID_RESPONSE:
+            raise DataValidationError(
+                f"line {line_number}: response must be one of {VALID_RESPONSE} or empty, "
+                f"found {row['response']!r}"
+            )
+
+        time_from_start = parse_integer(
+            row["time_from_treatment_start"], "time_from_treatment_start", line_number
+        )
+        if time_from_start < 0:
+            raise DataValidationError(
+                f"line {line_number}: time_from_treatment_start is negative: "
+                f"{time_from_start}"
+            )
+
         for column in POPULATIONS:
             value = row[column]
-            if not value.lstrip("-").isdigit():
-                raise DataValidationError(
-                    f"line {line_number}: non integer count in {column}: {value!r}"
-                )
-            if int(value) < 0:
+            count = parse_integer(value, column, line_number)
+            if count < 0:
                 raise DataValidationError(
                     f"line {line_number}: negative count in {column}: {value!r}"
                 )
