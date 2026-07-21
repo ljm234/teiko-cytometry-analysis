@@ -43,6 +43,7 @@ pipeline: $(VENV_PYTHON)
 	$(VENV_PYTHON) -m analysis.mixed_models
 	$(VENV_PYTHON) -m analysis.subsets
 	$(VENV_PYTHON) -m analysis.figures
+	$(VENV_PYTHON) -m analysis.export_dashboard
 
 test: $(VENV_PYTHON)
 	@if [ -z "$$(ls tests/test_*.py 2>/dev/null)" ]; then \

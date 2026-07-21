@@ -1,0 +1,900 @@
+{
+  "generatedOn": "2026-07-21",
+  "cohort": {
+    "description": "Melanoma patients treated with miraclib, PBMC samples",
+    "nSamples": 1968,
+    "nSubjects": 656,
+    "timepoints": [
+      0,
+      7,
+      14
+    ],
+    "alpha": 0.05
+  },
+  "studyOverview": [
+    {
+      "condition": "carcinoma",
+      "treatment": "miraclib",
+      "sample_type": "PBMC",
+      "n_samples": 1461,
+      "n_subjects": 487
+    },
+    {
+      "condition": "carcinoma",
+      "treatment": "miraclib",
+      "sample_type": "WB",
+      "n_samples": 579,
+      "n_subjects": 193
+    },
+    {
+      "condition": "carcinoma",
+      "treatment": "phauximab",
+      "sample_type": "PBMC",
+      "n_samples": 1293,
+      "n_subjects": 431
+    },
+    {
+      "condition": "carcinoma",
+      "treatment": "phauximab",
+      "sample_type": "WB",
+      "n_samples": 570,
+      "n_subjects": 190
+    },
+    {
+      "condition": "healthy",
+      "treatment": "none",
+      "sample_type": "PBMC",
+      "n_samples": 1005,
+      "n_subjects": 335
+    },
+    {
+      "condition": "healthy",
+      "treatment": "none",
+      "sample_type": "WB",
+      "n_samples": 417,
+      "n_subjects": 139
+    },
+    {
+      "condition": "melanoma",
+      "treatment": "miraclib",
+      "sample_type": "PBMC",
+      "n_samples": 1968,
+      "n_subjects": 656
+    },
+    {
+      "condition": "melanoma",
+      "treatment": "miraclib",
+      "sample_type": "WB",
+      "n_samples": 687,
+      "n_subjects": 229
+    },
+    {
+      "condition": "melanoma",
+      "treatment": "phauximab",
+      "sample_type": "PBMC",
+      "n_samples": 1773,
+      "n_subjects": 591
+    },
+    {
+      "condition": "melanoma",
+      "treatment": "phauximab",
+      "sample_type": "WB",
+      "n_samples": 747,
+      "n_subjects": 249
+    }
+  ],
+  "populations": [
+    {
+      "id": "b_cell",
+      "label": "B cell"
+    },
+    {
+      "id": "cd8_t_cell",
+      "label": "CD8+ T cell"
+    },
+    {
+      "id": "cd4_t_cell",
+      "label": "CD4+ T cell"
+    },
+    {
+      "id": "nk_cell",
+      "label": "NK cell"
+    },
+    {
+      "id": "monocyte",
+      "label": "Monocyte"
+    }
+  ],
+  "distributions": [
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 0,
+      "response": "yes",
+      "n": 331,
+      "min": 3.1520697678965997,
+      "q1": 7.640857028204488,
+      "median": 9.785034652883825,
+      "q3": 11.85252142191067,
+      "max": 25.11549414618711,
+      "whiskerLow": 3.1520697678965997,
+      "whiskerHigh": 18.041186994399503,
+      "mean": 10.08676774772329
+    },
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 0,
+      "response": "no",
+      "n": 325,
+      "min": 2.060780090930845,
+      "q1": 7.6254966818531695,
+      "median": 9.758175376096343,
+      "q3": 11.655590140489611,
+      "max": 20.782398612373008,
+      "whiskerLow": 2.060780090930845,
+      "whiskerHigh": 16.836598198626675,
+      "mean": 9.774166120812726
+    },
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 7,
+      "response": "yes",
+      "n": 331,
+      "min": 3.5052587902076455,
+      "q1": 7.171935038883624,
+      "median": 9.233417466902628,
+      "q3": 12.055779481464196,
+      "max": 19.25268096514745,
+      "whiskerLow": 3.5052587902076455,
+      "whiskerHigh": 19.25268096514745,
+      "mean": 9.745962318786605
+    },
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 7,
+      "response": "no",
+      "n": 325,
+      "min": 3.0801665524692985,
+      "q1": 7.887321148617809,
+      "median": 9.96574061312489,
+      "q3": 11.882690350633732,
+      "max": 21.300051225134467,
+      "whiskerLow": 3.0801665524692985,
+      "whiskerHigh": 17.796077257074412,
+      "mean": 10.108059928106302
+    },
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 14,
+      "response": "yes",
+      "n": 331,
+      "min": 2.373808422937305,
+      "q1": 7.173813241203193,
+      "median": 9.107291903786328,
+      "q3": 11.49818248432548,
+      "max": 20.008137110308702,
+      "whiskerLow": 2.373808422937305,
+      "whiskerHigh": 17.959400020458077,
+      "mean": 9.55992777480058
+    },
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 14,
+      "response": "no",
+      "n": 325,
+      "min": 3.7345056750298684,
+      "q1": 7.941426409932224,
+      "median": 9.837048983645893,
+      "q3": 11.909927748404357,
+      "max": 19.49374565339583,
+      "whiskerLow": 3.7345056750298684,
+      "whiskerHigh": 17.454511953567646,
+      "mean": 10.106733083706455
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 0,
+      "response": "yes",
+      "n": 331,
+      "min": 11.285446404653477,
+      "q1": 21.30160891867039,
+      "median": 24.39568761084873,
+      "q3": 28.08414123352958,
+      "max": 39.813767550702025,
+      "whiskerLow": 11.285446404653477,
+      "whiskerHigh": 38.256850626264836,
+      "mean": 24.817742757346927
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 0,
+      "response": "no",
+      "n": 325,
+      "min": 11.16667129668213,
+      "q1": 22.17829012571071,
+      "median": 24.60102813964531,
+      "q3": 27.50507483408185,
+      "max": 38.05647009990283,
+      "whiskerLow": 15.597738117760821,
+      "whiskerHigh": 35.32887757267133,
+      "mean": 25.000818276940443
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 7,
+      "response": "yes",
+      "n": 331,
+      "min": 12.259503002841011,
+      "q1": 21.437285486679123,
+      "median": 24.696417585537837,
+      "q3": 28.124274638627682,
+      "max": 39.852273632237,
+      "whiskerLow": 12.259503002841011,
+      "whiskerHigh": 36.01353378790857,
+      "mean": 24.799045499977066
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 7,
+      "response": "no",
+      "n": 325,
+      "min": 13.72023083800699,
+      "q1": 21.71346538032948,
+      "median": 24.772727272727273,
+      "q3": 27.899938578368417,
+      "max": 36.7730867643638,
+      "whiskerLow": 13.72023083800699,
+      "whiskerHigh": 36.7730867643638,
+      "mean": 24.901903575346857
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 14,
+      "response": "yes",
+      "n": 331,
+      "min": 13.441362460477148,
+      "q1": 21.388549971530672,
+      "median": 25.077472448539822,
+      "q3": 27.881798963963924,
+      "max": 40.16619696560244,
+      "whiskerLow": 13.441362460477148,
+      "whiskerHigh": 37.506493506493506,
+      "mean": 25.02900652796613
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 14,
+      "response": "no",
+      "n": 325,
+      "min": 13.70772655865997,
+      "q1": 21.75546261615908,
+      "median": 24.5581237253569,
+      "q3": 28.183183321510498,
+      "max": 38.03347489382963,
+      "whiskerLow": 13.70772655865997,
+      "whiskerHigh": 37.79775455047418,
+      "mean": 24.92905122029029
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 0,
+      "response": "yes",
+      "n": 331,
+      "min": 15.907844212835984,
+      "q1": 26.523684242209328,
+      "median": 29.633821633005223,
+      "q3": 33.33942242071038,
+      "max": 48.267376966007106,
+      "whiskerLow": 16.46042150436495,
+      "whiskerHigh": 43.01544149630274,
+      "mean": 29.975027176680108
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 0,
+      "response": "no",
+      "n": 325,
+      "min": 18.84141176470588,
+      "q1": 26.715838675786358,
+      "median": 29.530535110403818,
+      "q3": 32.959827900668756,
+      "max": 43.05782765836028,
+      "whiskerLow": 18.84141176470588,
+      "whiskerHigh": 41.983528477872596,
+      "mean": 29.830396675658612
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 7,
+      "response": "yes",
+      "n": 331,
+      "min": 15.671724751264522,
+      "q1": 27.17084194082967,
+      "median": 30.445659590036684,
+      "q3": 33.993076902733705,
+      "max": 49.03022101939558,
+      "whiskerLow": 17.176647819537106,
+      "whiskerHigh": 43.98863359239977,
+      "mean": 30.746900042213053
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 7,
+      "response": "no",
+      "n": 325,
+      "min": 16.150207548991215,
+      "q1": 26.277624309392266,
+      "median": 29.54763079244407,
+      "q3": 33.11148433669584,
+      "max": 41.11304790630263,
+      "whiskerLow": 16.150207548991215,
+      "whiskerHigh": 41.11304790630263,
+      "mean": 29.717765287736245
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 14,
+      "response": "yes",
+      "n": 331,
+      "min": 17.4556153799964,
+      "q1": 27.289028638997028,
+      "median": 30.790936388610856,
+      "q3": 34.42653578701216,
+      "max": 45.413167381628504,
+      "whiskerLow": 17.4556153799964,
+      "whiskerHigh": 44.05659158447823,
+      "mean": 30.891497806657117
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 14,
+      "response": "no",
+      "n": 325,
+      "min": 17.5017990034887,
+      "q1": 26.399733135965143,
+      "median": 30.069868027059997,
+      "q3": 33.58074435372707,
+      "max": 45.266243566425445,
+      "whiskerLow": 17.5017990034887,
+      "whiskerHigh": 43.99645231007626,
+      "mean": 30.158623365367315
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 0,
+      "response": "yes",
+      "n": 331,
+      "min": 4.567301189391959,
+      "q1": 12.11708522495027,
+      "median": 14.997332404211535,
+      "q3": 18.132277777468513,
+      "max": 32.046671970299656,
+      "whiskerLow": 4.567301189391959,
+      "whiskerHigh": 26.769236961531107,
+      "mean": 15.219501327298259
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 0,
+      "response": "no",
+      "n": 325,
+      "min": 5.627378785371504,
+      "q1": 12.73788240418909,
+      "median": 14.890453979521677,
+      "q3": 17.372379064761166,
+      "max": 28.323705757911235,
+      "whiskerLow": 8.06738186807008,
+      "whiskerHigh": 24.187568377973175,
+      "mean": 15.171309323385438
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 7,
+      "response": "yes",
+      "n": 331,
+      "min": 6.1057618042325315,
+      "q1": 11.342903781482566,
+      "median": 14.419799388594255,
+      "q3": 17.18338043995631,
+      "max": 28.19331398299064,
+      "whiskerLow": 6.1057618042325315,
+      "whiskerHigh": 25.554164174641148,
+      "mean": 14.657068176489611
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 7,
+      "response": "no",
+      "n": 325,
+      "min": 6.343279635290509,
+      "q1": 12.283214149548527,
+      "median": 14.795928490644656,
+      "q3": 18.021502816789653,
+      "max": 25.82966648846486,
+      "whiskerLow": 6.343279635290509,
+      "whiskerHigh": 25.82966648846486,
+      "mean": 15.087751121131044
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 14,
+      "response": "yes",
+      "n": 331,
+      "min": 6.022798757124612,
+      "q1": 11.940432061835823,
+      "median": 14.35279940320205,
+      "q3": 17.02614882184048,
+      "max": 28.469909851376595,
+      "whiskerLow": 6.022798757124612,
+      "whiskerHigh": 24.590179387837825,
+      "mean": 14.646263308793356
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 14,
+      "response": "no",
+      "n": 325,
+      "min": 6.468857810224685,
+      "q1": 12.338445458382745,
+      "median": 14.653386282211766,
+      "q3": 17.465406353537322,
+      "max": 30.257074163121878,
+      "whiskerLow": 6.468857810224685,
+      "whiskerHigh": 24.875749955448192,
+      "mean": 14.960438199423287
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 0,
+      "response": "yes",
+      "n": 331,
+      "min": 8.634498519711213,
+      "q1": 16.602201998458977,
+      "median": 19.6055804178746,
+      "q3": 23.060064482389507,
+      "max": 36.551935579862395,
+      "whiskerLow": 8.634498519711213,
+      "whiskerHigh": 32.40525684202377,
+      "mean": 19.90096099095142
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 0,
+      "response": "no",
+      "n": 325,
+      "min": 11.131400745644068,
+      "q1": 17.420553927549285,
+      "median": 20.286002186823318,
+      "q3": 22.61927104838407,
+      "max": 31.989624293086223,
+      "whiskerLow": 11.131400745644068,
+      "whiskerHigh": 29.794652382890266,
+      "mean": 20.22330960320278
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 7,
+      "response": "yes",
+      "n": 331,
+      "min": 8.079164155113522,
+      "q1": 16.84373851526514,
+      "median": 19.596890913964085,
+      "q3": 22.903524720624475,
+      "max": 37.63849977406236,
+      "whiskerLow": 8.079164155113522,
+      "whiskerHigh": 31.973394839886286,
+      "mean": 20.051023962533666
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 7,
+      "response": "no",
+      "n": 325,
+      "min": 9.55922347379768,
+      "q1": 17.385211519289733,
+      "median": 20.03212228622065,
+      "q3": 22.940684223480186,
+      "max": 31.684170687860725,
+      "whiskerLow": 9.55922347379768,
+      "whiskerHigh": 30.876785320806874,
+      "mean": 20.184520087679548
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 14,
+      "response": "yes",
+      "n": 331,
+      "min": 9.264334558394062,
+      "q1": 16.70310712309217,
+      "median": 19.623260270454477,
+      "q3": 22.36505382344715,
+      "max": 35.52712395506928,
+      "whiskerLow": 9.264334558394062,
+      "whiskerHigh": 30.69734957653341,
+      "mean": 19.873304581782815
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 14,
+      "response": "no",
+      "n": 325,
+      "min": 10.078981272289337,
+      "q1": 16.846138535031848,
+      "median": 19.74962832087221,
+      "q3": 22.925548671637088,
+      "max": 34.15009609866737,
+      "whiskerLow": 10.078981272289337,
+      "whiskerHigh": 30.499235386519917,
+      "mean": 19.845154131212645
+    }
+  ],
+  "statistics": [
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 0,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 9.785,
+      "medianNonResponders": 9.7582,
+      "shift": 0.1487,
+      "effectSize": 0.0271,
+      "pValue": 0.5485408675112389,
+      "qValue": 0.8853281081905567,
+      "significant": false
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 0,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 24.3957,
+      "medianNonResponders": 24.601,
+      "shift": -0.2466,
+      "effectSize": -0.0295,
+      "pValue": 0.5139556861462278,
+      "qValue": 0.8853281081905567,
+      "significant": false
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 0,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 29.6338,
+      "medianNonResponders": 29.5305,
+      "shift": 0.1018,
+      "effectSize": 0.0116,
+      "pValue": 0.7964495929763914,
+      "qValue": 0.8853281081905567,
+      "significant": false
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 0,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 14.9973,
+      "medianNonResponders": 14.8905,
+      "shift": -0.0496,
+      "effectSize": -0.0065,
+      "pValue": 0.8853281081905569,
+      "qValue": 0.8853281081905567,
+      "significant": false
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 0,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 19.6056,
+      "medianNonResponders": 20.286,
+      "shift": -0.4344,
+      "effectSize": -0.0564,
+      "pValue": 0.21138928177193006,
+      "qValue": 0.8853281081905567,
+      "significant": false
+    },
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 7,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 9.2334,
+      "medianNonResponders": 9.9657,
+      "shift": -0.379,
+      "effectSize": -0.066,
+      "pValue": 0.14386477481769383,
+      "qValue": 0.23977462469615637,
+      "significant": false
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 7,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 24.6964,
+      "medianNonResponders": 24.7727,
+      "shift": -0.1719,
+      "effectSize": -0.0213,
+      "pValue": 0.637658094967041,
+      "qValue": 0.637658094967041,
+      "significant": false
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 7,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 30.4457,
+      "medianNonResponders": 29.5476,
+      "shift": 0.8973,
+      "effectSize": 0.0981,
+      "pValue": 0.029706072054571857,
+      "qValue": 0.1485303602728593,
+      "significant": false
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 7,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 14.4198,
+      "medianNonResponders": 14.7959,
+      "shift": -0.4854,
+      "effectSize": -0.067,
+      "pValue": 0.1377526593743302,
+      "qValue": 0.23977462469615637,
+      "significant": false
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 7,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 19.5969,
+      "medianNonResponders": 20.0321,
+      "shift": -0.2372,
+      "effectSize": -0.0316,
+      "pValue": 0.48413674295382403,
+      "qValue": 0.6051709286922801,
+      "significant": false
+    },
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "timepoint": 14,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 9.1073,
+      "medianNonResponders": 9.837,
+      "shift": -0.6097,
+      "effectSize": -0.1104,
+      "pValue": 0.014414435042203688,
+      "qValue": 0.07207217521101844,
+      "significant": false
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "timepoint": 14,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 25.0775,
+      "medianNonResponders": 24.5581,
+      "shift": 0.133,
+      "effectSize": 0.0149,
+      "pValue": 0.7407366897157915,
+      "qValue": 0.7407366897157915,
+      "significant": false
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "timepoint": 14,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 30.7909,
+      "medianNonResponders": 30.0699,
+      "shift": 0.7176,
+      "effectSize": 0.0802,
+      "pValue": 0.0754706770446271,
+      "qValue": 0.18867669261156772,
+      "significant": false
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "timepoint": 14,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 14.3528,
+      "medianNonResponders": 14.6534,
+      "shift": -0.3122,
+      "effectSize": -0.0454,
+      "pValue": 0.3147007071269343,
+      "qValue": 0.5245011785448905,
+      "significant": false
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "timepoint": 14,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "medianResponders": 19.6233,
+      "medianNonResponders": 19.7496,
+      "shift": -0.163,
+      "effectSize": -0.0207,
+      "pValue": 0.6471033071525258,
+      "qValue": 0.7407366897157915,
+      "significant": false
+    }
+  ],
+  "power": [
+    {
+      "timepoint": 0,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "minimumDetectableEffect": 0.2198
+    },
+    {
+      "timepoint": 7,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "minimumDetectableEffect": 0.2198
+    },
+    {
+      "timepoint": 14,
+      "nResponders": 331,
+      "nNonResponders": 325,
+      "minimumDetectableEffect": 0.2198
+    }
+  ],
+  "intraclassCorrelation": [
+    {
+      "population": "b_cell",
+      "populationLabel": "B cell",
+      "icc1": -0.0204,
+      "samplesPerSubject": 3
+    },
+    {
+      "population": "cd8_t_cell",
+      "populationLabel": "CD8+ T cell",
+      "icc1": -0.0086,
+      "samplesPerSubject": 3
+    },
+    {
+      "population": "cd4_t_cell",
+      "populationLabel": "CD4+ T cell",
+      "icc1": -0.0106,
+      "samplesPerSubject": 3
+    },
+    {
+      "population": "nk_cell",
+      "populationLabel": "NK cell",
+      "icc1": -0.0609,
+      "samplesPerSubject": 3
+    },
+    {
+      "population": "monocyte",
+      "populationLabel": "Monocyte",
+      "icc1": -0.0293,
+      "samplesPerSubject": 3
+    }
+  ],
+  "subsets": {
+    "baseline_cohort": {
+      "description": "Melanoma PBMC samples at baseline from patients treated with miraclib",
+      "n_samples": 656,
+      "n_subjects": 656
+    },
+    "samples_per_project": [
+      {
+        "project": "prj1",
+        "n_samples": 384,
+        "n_subjects": 384
+      },
+      {
+        "project": "prj3",
+        "n_samples": 272,
+        "n_subjects": 272
+      }
+    ],
+    "subjects_by_response": [
+      {
+        "response": "no",
+        "n_subjects": 325,
+        "n_samples": 325
+      },
+      {
+        "response": "yes",
+        "n_subjects": 331,
+        "n_samples": 331
+      }
+    ],
+    "subjects_by_sex": [
+      {
+        "sex": "F",
+        "n_subjects": 312,
+        "n_samples": 312
+      },
+      {
+        "sex": "M",
+        "n_subjects": 344,
+        "n_samples": 344
+      }
+    ],
+    "male_responder_baseline_b_cells": {
+      "n_samples": 485,
+      "n_subjects": 485,
+      "total_b_cell_count": 4949983,
+      "mean_b_cell_count": 10206.150515463918,
+      "mean_b_cell_count_rounded": 10206.15,
+      "breakdown": [
+        {
+          "sample_type": "PBMC",
+          "treatment": "miraclib",
+          "n_samples": 184,
+          "mean_b_cell_count": 10401.277173913044
+        },
+        {
+          "sample_type": "PBMC",
+          "treatment": "phauximab",
+          "n_samples": 179,
+          "mean_b_cell_count": 10006.737430167597
+        },
+        {
+          "sample_type": "WB",
+          "treatment": "miraclib",
+          "n_samples": 54,
+          "mean_b_cell_count": 9852.62962962963
+        },
+        {
+          "sample_type": "WB",
+          "treatment": "phauximab",
+          "n_samples": 68,
+          "mean_b_cell_count": 10483.823529411764
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,271 @@
+/* The palette is taken from the instrument rather than from a brand system. Deep
+   navy is the background a flow cytometry scatter plot is usually read against, the
+   paper tone matches printed lab reports, and the two group colours are the same
+   values used by the figures the pipeline writes, so a reader moving between the PNG
+   files and this page sees one consistent encoding. */
+
+:root {
+  --ink: #0f2942;
+  --ink-soft: #3d5a75;
+  --paper: #fafaf7;
+  --rule: #d8d5cc;
+  --responder: #2c7fb8;
+  --non-responder: #d95f0e;
+  --highlight: #f5efe0;
+
+  --display: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --data: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.masthead {
+  border-bottom: 2px solid var(--ink);
+  padding: 2.5rem 0 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: var(--data);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+  font-weight: 400;
+  line-height: 1.12;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 0.35rem;
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+.lede {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.census {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.25rem;
+  margin-top: 1.5rem;
+  font-family: var(--data);
+  font-size: 0.8rem;
+}
+
+.census div span {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.census div {
+  color: var(--ink-soft);
+}
+
+section {
+  margin-bottom: 3.5rem;
+}
+
+.section-note {
+  color: var(--ink-soft);
+  max-width: 66ch;
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.controls button {
+  font-family: var(--data);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.controls button:hover {
+  border-color: var(--ink-soft);
+  color: var(--ink);
+}
+
+.controls button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.controls button:focus-visible {
+  outline: 2px solid var(--responder);
+  outline-offset: 2px;
+}
+
+.legend {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--data);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.plot {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--data);
+  font-size: 0.79rem;
+}
+
+caption {
+  text-align: left;
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 0.88rem;
+  padding-bottom: 0.75rem;
+}
+
+th {
+  text-align: right;
+  font-weight: 600;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.5rem 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+td {
+  text-align: right;
+  padding: 0.45rem 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  font-variant-numeric: tabular-nums;
+}
+
+tbody tr:hover {
+  background: var(--highlight);
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.finding {
+  border-left: 3px solid var(--ink);
+  padding: 0.15rem 0 0.15rem 1.15rem;
+  margin: 1.5rem 0;
+  max-width: 66ch;
+}
+
+.finding p {
+  margin: 0 0 0.6rem;
+}
+
+.finding p:last-child {
+  margin-bottom: 0;
+}
+
+.status {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: var(--ink-soft);
+  font-family: var(--data);
+  font-size: 0.85rem;
+}
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+  font-family: var(--data);
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .census {
+    gap: 1.25rem;
+  }
+  table {
+    font-size: 0.72rem;
+  }
+  th,
+  td {
+    padding: 0.4rem 0.4rem;
+  }
+}
