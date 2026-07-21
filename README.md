@@ -22,21 +22,25 @@ enough to survive correction for multiple testing.
 
 ## Running it
 
-The pipeline needs Python 3.12 or newer. The dashboard needs Node 22 or newer.
+The pipeline needs Python 3.12 or newer and the dashboard needs Node 22 or newer, both
+of which the included dev container provides. The version floor is not arbitrary: numpy
+and scipy publish wheels from cp312 onward, and on an older interpreter pip falls back
+to building them from source, which needs a Fortran toolchain and several minutes.
 
 ### In GitHub Codespaces
 
 Open the repository on GitHub, press the green **Code** button, choose the
-**Codespaces** tab and create a codespace on `main`. When the terminal is ready:
+**Codespaces** tab and create a codespace on `main`. The container pins Python 3.12 and
+Node 22 and runs `make setup` on creation, so dependencies are already installed by the
+time the terminal appears. Then:
 
 ```bash
-make setup      # create a virtual environment and install dependencies
 make pipeline   # load the data and produce every table, figure and payload
 make dashboard  # serve the dashboard
 ```
 
-Codespaces will offer to forward port 5173 once the dashboard starts. Accept, then open
-the forwarded address in a browser.
+Codespaces forwards port 5173 when the dashboard starts and shows a notification with
+the address. If setup did not finish, or to reinstall from scratch, run `make setup`.
 
 ### Locally
 
@@ -137,6 +141,7 @@ table if the study moves off a fixed three visit schedule.
 ## Code structure
 
 ```
+.devcontainer/            Pinned Python and Node versions for Codespaces
 load_data.py              Build the database from the source file
 schema.sql                Table definitions, constraints and views
 analysis/
