@@ -162,7 +162,7 @@ analysis/
   subsets.py              Part 4, subset queries
   export_dashboard.py     Payload for the dashboard
 dashboard/                React and TypeScript front end
-tests/                    Test suite, 41 tests
+tests/                    Test suite, 43 tests
 ```
 
 `load_data.py` takes no arguments and is idempotent: it rebuilds the database from
@@ -236,7 +236,7 @@ anything, so it is documented instead.
 
 ## Tests
 
-`make test` runs 41 tests covering the loader, the frequency calculation, the statistical
+`make test` runs 43 tests covering the loader, the frequency calculation, the statistical
 functions and the subset queries. The suite checks properties rather than pinning
 outputs: that percentages sum to one hundred within every sample, that the
 Benjamini-Hochberg adjustment never decreases with rank and never falls below the raw

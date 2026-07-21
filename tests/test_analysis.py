@@ -130,6 +130,25 @@ def test_hodges_lehmann_recovers_a_known_shift() -> None:
     assert statistics.hodges_lehmann_shift(x, y) == pytest.approx(5.0)
 
 
+def test_hodges_lehmann_resists_an_outlier() -> None:
+    """The estimator is the median of pairwise differences, not the mean of them.
+
+    On symmetric data the two agree, so a test built from symmetric inputs cannot tell
+    them apart. One extreme value separates them: the median stays with the bulk of the
+    differences while the mean is dragged towards the outlier, and it is that resistance
+    that makes the estimator the right partner for a rank based test.
+    """
+    x = np.array([1.0, 2.0, 3.0, 400.0])
+    y = np.array([0.0, 0.0, 0.0, 0.0])
+
+    shift = statistics.hodges_lehmann_shift(x, y)
+    differences = np.subtract.outer(x, y)
+
+    assert shift == pytest.approx(2.5)
+    assert shift != pytest.approx(float(differences.mean()))
+    assert shift < differences.mean() / 10
+
+
 def test_intraclass_correlation_is_near_zero_for_this_cohort(cohort) -> None:
     """Repeated samples here carry no subject level correlation.
 
