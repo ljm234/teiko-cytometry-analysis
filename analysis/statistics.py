@@ -53,6 +53,13 @@ from analysis.database import (
 ALPHA = 0.05
 TIMEPOINTS = (0, 7, 14)
 
+# Written values are rounded to ten decimal places. A float64 carries roughly
+# seventeen significant digits, and the final one or two are not stable across
+# library versions, so writing full repr precision makes the output files differ
+# between machines for no analytical reason. Ten places resolve to 1e-10, which is
+# seven orders of magnitude finer than the smallest p value the analysis produces.
+FLOAT_FORMAT = "%.10f"
+
 COHORT_SQL = """
 SELECT
     sample,
@@ -347,7 +354,7 @@ def write_tables(tables: dict[str, pd.DataFrame]) -> dict[str, Path]:
     destinations: dict[str, Path] = {}
     for key, frame in tables.items():
         destination = OUTPUT_TABLES / filenames[key]
-        frame.to_csv(destination, index=False)
+        frame.to_csv(destination, index=False, float_format=FLOAT_FORMAT)
         destinations[key] = destination
     return destinations
 

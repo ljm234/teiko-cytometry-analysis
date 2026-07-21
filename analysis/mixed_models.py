@@ -43,7 +43,7 @@ from analysis.database import (
     POPULATIONS,
     ensure_output_directories,
 )
-from analysis.statistics import ALPHA, benjamini_hochberg, load_cohort
+from analysis.statistics import ALPHA, FLOAT_FORMAT, benjamini_hochberg, load_cohort
 
 OPTIMISER = "powell"
 MAX_ITERATIONS = 1000
@@ -119,7 +119,7 @@ def summarise(cohort: pd.DataFrame) -> pd.DataFrame:
 def write_table(summary: pd.DataFrame, path: Path | None = None) -> Path:
     ensure_output_directories()
     destination = path or OUTPUT_TABLES / "mixed_model_summary.csv"
-    summary.to_csv(destination, index=False)
+    summary.to_csv(destination, index=False, float_format=FLOAT_FORMAT)
     return destination
 
 
