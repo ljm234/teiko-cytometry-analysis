@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import shutil
 import sqlite3
 import subprocess
@@ -147,6 +148,35 @@ def test_missing_source_file_is_reported_clearly(sandbox: Path) -> None:
     assert result.returncode == 1
     assert "not found" in result.stderr
     assert "Traceback" not in result.stderr
+
+
+def test_schema_drops_strict_when_the_engine_is_too_old(repo_root: Path) -> None:
+    """STRICT is stripped below SQLite 3.37 so the schema still loads.
+
+    A recent Python can be linked against an older SQLite than the release date
+    suggests, since the library version is fixed when the interpreter is compiled.
+    Where STRICT cannot be used the constraints that actually protect the data, the
+    foreign keys and the range checks, are unaffected.
+    """
+    schema_path = repo_root / "schema.sql"
+    original = schema_path.read_text(encoding="utf-8")
+    assert ") STRICT;" in original
+
+    stripped = re.sub(r"\)\s*STRICT\s*;", ");", original)
+    assert not re.search(r"\)\s*STRICT\s*;", stripped)
+    assert "ON DELETE RESTRICT" in stripped, "RESTRICT must survive the substitution"
+    assert stripped.count("CHECK") == original.count("CHECK")
+    assert stripped.count("REFERENCES") == original.count("REFERENCES")
+
+    connection = sqlite3.connect(":memory:")
+    try:
+        connection.executescript(stripped)
+        tables = connection.execute(
+            "SELECT COUNT(*) FROM sqlite_master WHERE type = 'table'"
+        ).fetchone()[0]
+    finally:
+        connection.close()
+    assert tables == 5
 
 
 def test_healthy_subjects_without_response_load_successfully(sandbox: Path) -> None:

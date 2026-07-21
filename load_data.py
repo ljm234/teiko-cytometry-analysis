@@ -11,6 +11,7 @@ repeated executions converge on the same state rather than accumulating rows.
 from __future__ import annotations
 
 import csv
+import re
 import sqlite3
 import sys
 from pathlib import Path
@@ -175,12 +176,43 @@ def validate(rows: list[dict[str, str]]) -> None:
             )
 
 
+STRICT_TABLES_MINIMUM = (3, 37, 0)
+
+
+def supports_strict_tables() -> bool:
+    """Whether the linked SQLite build understands STRICT table declarations.
+
+    STRICT arrived in SQLite 3.37, released in November 2021. Most current systems ship
+    something newer, but the version is fixed at the point Python was compiled rather
+    than by the Python release itself, so a recent interpreter can still be linked
+    against an older library. GitHub Codespaces builds Python 3.12 that way.
+    """
+    version = tuple(int(part) for part in sqlite3.sqlite_version.split("."))
+    return version >= STRICT_TABLES_MINIMUM
+
+
+def read_schema(schema_path: Path) -> str:
+    """Load the schema, dropping STRICT where the engine cannot honour it.
+
+    STRICT makes SQLite reject a value whose type does not match the column instead of
+    coercing it, which is worth having. It is not, however, what protects the data: the
+    foreign keys, the range checks and the membership checks carry that weight, and
+    they work on every version. Where STRICT is unavailable the loader validates each
+    field before insertion anyway, so the guarantee is preserved even though the engine
+    is no longer the one enforcing it.
+    """
+    schema = schema_path.read_text(encoding="utf-8")
+    if supports_strict_tables():
+        return schema
+    return re.sub(r"\)\s*STRICT\s*;", ");", schema)
+
+
 def build_database(rows: list[dict[str, str]], db_path: Path, schema_path: Path) -> None:
     db_path.unlink(missing_ok=True)
 
     connection = sqlite3.connect(db_path)
     try:
-        connection.executescript(schema_path.read_text(encoding="utf-8"))
+        connection.executescript(read_schema(schema_path))
         connection.execute("PRAGMA foreign_keys = ON")
 
         connection.executemany(

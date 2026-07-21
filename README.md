@@ -110,10 +110,15 @@ no treatment has not failed to respond; the question does not apply. Storing `NU
 rather than an empty string keeps that distinction, and a `CHECK` constraint confirms
 that the only subjects with a null response are untreated healthy controls.
 
-Every table is declared `STRICT`, so SQLite enforces column types instead of silently
-coercing them. Foreign keys, range checks on age and timepoint, and membership checks on
-sex and response are all declared in the schema, and six indices cover the access
-patterns the analysis uses.
+Every table is declared `STRICT`, so SQLite rejects a value whose type does not match
+the column instead of coercing it. That clause needs SQLite 3.37 or newer, and the
+library version is fixed when Python is compiled rather than by the Python release, so a
+current interpreter can still be linked against something older. The loader checks and
+drops the clause when it cannot be honoured, which costs the type enforcement but
+nothing else: the foreign keys, the range checks on age and timepoint, and the
+membership checks on sex and response are declared separately and work on every version,
+and every field is validated in Python before insertion regardless. Six indices cover
+the access patterns the analysis uses.
 
 ### Scaling to hundreds of projects and thousands of samples
 
