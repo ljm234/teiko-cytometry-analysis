@@ -226,13 +226,13 @@ final question asks for melanoma males across all sample types and all treatment
 whole blood is included alongside PBMC and phauximab alongside miraclib. The answer is
 10206.15 B cells on average across 485 baseline samples.
 
-**One value differs in its tenth decimal place between machines.** The adjusted p value
-for the B cell mixed model reads 0.0781791349 under scipy 1.18 and 0.0781791350 under
-scipy 1.17. Both are the same number to the precision a float64 can represent; the
-difference is a single unit in the last place, arising from how each release evaluates
-the t distribution. It is deterministic on any given machine and changes no conclusion.
-Rounding it away would hide a real property of floating point arithmetic rather than fix
-anything, so it is documented instead.
+**Written values are rounded so that runs stay comparable.** Statistics are written to
+ten decimal places and variance components to six. Both limits exist because an
+optimiser and a distribution function can land a unit or two apart in the last bits of a
+float64 across library versions, which is arithmetic rather than a change in any result.
+Pinning the dependency versions in `requirements.txt` keeps a single environment
+reproducible; the rounding keeps a comparison between environments readable. Every
+figure reported here is unaffected at the precision it is quoted to.
 
 ## Tests
 
@@ -247,9 +247,9 @@ traceback.
 Continuous integration runs the full pipeline and the test suite on every push, and
 rebuilds and republishes the dashboard to both hosts.
 
-The pipeline has been run end to end on macOS with Python 3.14, in a Codespace with
-Python 3.12, and on the Ubuntu runners that build every commit. The three agree to the
-last reported digit, apart from the tenth decimal place noted above.
+Dependency versions are pinned in `requirements.txt` and the dev container fixes the
+Python and Node versions, so a fresh clone installs the same stack the analysis was
+written against.
 
 ## Licence
 
